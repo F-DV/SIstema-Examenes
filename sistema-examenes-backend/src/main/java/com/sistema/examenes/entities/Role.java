@@ -13,7 +13,7 @@ public class Role {
 
     @Id
     private Long rolId;
-    private String name;
+    private String nameRole;
 
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY, mappedBy = "role")
     private Set<UserRole> userRoles = new HashSet<>();
@@ -29,12 +29,12 @@ public class Role {
         this.rolId = rolId;
     }
 
-    public String getName() {
-        return name;
+    public String getNameRole() {
+        return nameRole;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameRole(String nameRole) {
+        this.nameRole = nameRole;
     }
 
     public Set<UserRole> getUserRoles() {
