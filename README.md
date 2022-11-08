@@ -13,3 +13,5 @@ spring Data JPA, MysqlDriver, Validation, spring webflux,
 project Reactor,JUnit4.13.
 
 ##FrontEnd
+- Angular
+- Dependencias: AngularMaterials

@@ -12,10 +12,10 @@ export class SignupComponent implements OnInit {
   public user:User = {
     username: '',
     password: '',
-    nombre: '',
-    apellido: '',
+    name: '',
+    lastName: '',
     email: '',
-    telefono: ''
+    phoneNumber: ''
   }
   constructor(private userService:UserService) { }
 
