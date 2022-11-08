@@ -14,4 +14,4 @@ project Reactor,JUnit4.13.
 
 ##FrontEnd
 - Angular
-- Dependencias: AngularMaterials
+- Dependencias: AngularMaterials, sweetalert2, bootstrap,
