@@ -10,6 +10,6 @@ export class UserService {
   constructor(private http:HttpClient) { }
 
   public addUsuario(user:any){
-    return this.http.post(`${baseUrl}/users`, user);
+    return this.http.post(`${baseUrl}/users/`, user);
   }
 }
