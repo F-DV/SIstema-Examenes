@@ -25,6 +25,7 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		/*
 		//Se instancia el usuario
 		User user = new User();
 		user.setName("Felipe");
@@ -51,5 +52,7 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 		userRoleSet.add(userRole);
 		User savedUser = userService.saveUser(user,userRoleSet);
 		System.out.println(savedUser.getName());
+	*/
 	}
+
 }

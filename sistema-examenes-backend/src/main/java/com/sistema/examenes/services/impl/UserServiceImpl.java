@@ -7,8 +7,6 @@ import com.sistema.examenes.repositories.UserRepository;
 import com.sistema.examenes.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.awt.*;
 import java.util.Set;
 
 /**
@@ -49,5 +47,15 @@ public class UserServiceImpl implements UserService {
         localUser = userRepository.save(user);
     }
         return localUser;
+    }
+
+    @Override
+    public User getUser(String username) {
+        return userRepository.findByUsername(username);
+    }
+
+    @Override
+    public void deleteUser(Long userId) {
+        userRepository.deleteById(userId);
     }
 }
