@@ -32,7 +32,7 @@ public class User {
      * - mappedBy: Apunta a la entidad propietaria de la relacion
      */
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
-
+    @JsonIgnore // Omite los roles del usuario cuando lo llamamos con get
     private Set<UserRole> userRoles = new HashSet<>();
 
     public User() {
