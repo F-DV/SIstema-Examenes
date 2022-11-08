@@ -31,6 +31,7 @@ public class UserController {
         userRole.setUser(user);
         userRole.setRole(role);
 
+        roles.add(userRole);
         return userService.saveUser(user,roles);
 
     }

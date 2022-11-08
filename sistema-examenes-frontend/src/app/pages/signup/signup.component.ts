@@ -24,6 +24,7 @@ export class SignupComponent implements OnInit {
 
 /**
  * Enviar formulario
+ * Nos suscribimos a los valores que nos devuelve el backend
  * @returns
  */
   formSubmit(){
@@ -40,6 +41,16 @@ export class SignupComponent implements OnInit {
       console.log(error);
       alert('Ha ocurrido un error al tratar de agregar al usuario');
     })
+  }
+
+  cleanForm(){
+      this.user.username = '',
+      this.user.password= '',
+      this.user.name = '',
+      this.user.lastName= '',
+      this.user.email= '',
+      this.user.phoneNumber= ''
+
   }
 
 }
