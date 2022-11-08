@@ -55,14 +55,4 @@ export class SignupComponent implements OnInit {
     })
   }
 
-  cleanForm(){
-      this.user.username = '',
-      this.user.password= '',
-      this.user.name = '',
-      this.user.lastName= '',
-      this.user.email= '',
-      this.user.phoneNumber= ''
-
-  }
-
 }
