@@ -1,5 +1,7 @@
 package com.sistema.examenes.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -30,6 +32,7 @@ public class User {
      * - mappedBy: Apunta a la entidad propietaria de la relacion
      */
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "user")
+
     private Set<UserRole> userRoles = new HashSet<>();
 
     public User() {
