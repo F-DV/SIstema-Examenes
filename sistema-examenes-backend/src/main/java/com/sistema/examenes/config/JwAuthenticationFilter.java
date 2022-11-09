@@ -1,0 +1,93 @@
+package com.sistema.examenes.config;
+
+import com.sistema.examenes.services.impl.UserDetailsServiceImpl;
+import io.jsonwebtoken.ExpiredJwtException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
+import org.springframework.stereotype.Component;
+import org.springframework.web.filter.OncePerRequestFilter;
+
+import javax.servlet.FilterChain;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
+
+/**
+ * - Filtro para validar que el token sea valido
+ * - Hereda de OncePerRequestFilter que nos provee un metodo quien tendra el filtro para
+ * comprobar si existe el token y lo valida y si esta valido nos da un permiso con un
+ * contexto
+ */
+@Component
+public class JwAuthenticationFilter extends OncePerRequestFilter {
+
+    @Autowired
+    private UserDetailsServiceImpl userDetailsService;
+
+    @Autowired
+    private JwtUtils jwtUtils;
+
+    /**
+     * Creamos filtro interno
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
+        //Obtenemos el Header
+        String requestTokenHeader = request.getHeader("Authorization");
+        //
+        String username = null;
+        String jwtToken = null;
+
+
+        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
+
+            //asignamos el token despues del 7 caracter
+            jwtToken = requestTokenHeader.substring(7);
+
+            try {
+                /*
+                extaermos el username de el token ya recortado anteriormente
+                */
+                 username = this.jwtUtils.extractUsername(jwtToken);
+
+
+            } catch (ExpiredJwtException expiredJwtException) {
+                System.out.println("El token ha expirado");
+            } catch (Exception exception) {
+                exception.printStackTrace();
+            }
+        }else{
+            System.out.println("Token invalido, no empieza con Bearer string");
+        }
+
+        if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
+
+            //Detalles del usuario
+            UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
+
+            //Realizamos la validacion del token con los detalles de ese usuario
+            if(this.jwtUtils.validateToken(jwtToken,userDetails)){
+                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+
+                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+            }else{
+                System.out.println("El token no es valido");
+            }
+            filterChain.doFilter(request,response);
+
+
+        }
+    }
+
+}
