@@ -5,8 +5,6 @@
 \sistema-examenes-backend/src/main/java/com/sistema/examenes/repositories/UserRepository.java,1\8\1880de94c3d703fa942382fc5dafd3bc928dd3fc
 ~
 Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/Role.java,5\9\59ebb7200d7c7a1a4121908a48e059075d4a0e66
-P
- sistema-examenes-backend/pom.xml,2\e\2e8d19be1fb07b764315126f8cf97bd4ae2a0f1b
 ‚
 Rsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/UserRole.java,0\a\0ac83d5e4a31454da5498fb0b6586cee0d6988a5
 [

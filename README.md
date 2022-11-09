@@ -10,8 +10,12 @@
 - Mysql
 - Dependencias: SpringbootDevtools, Spring web ,
 spring Data JPA, MysqlDriver, Validation, spring webflux,
-project Reactor,JUnit4.13.
+project Reactor,JUnit4.13,spring Security, JWT, Jaxb.
 
 ##FrontEnd
 - Angular
 - Dependencias: AngularMaterials, sweetalert2, bootstrap,
+
+##Seguridad
+- Spring Security
+- JWT
