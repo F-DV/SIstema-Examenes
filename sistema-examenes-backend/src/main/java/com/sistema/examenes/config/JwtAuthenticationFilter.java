@@ -23,7 +23,7 @@ import java.io.IOException;
  * contexto
  */
 @Component
-public class JwAuthenticationFilter extends OncePerRequestFilter {
+public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
