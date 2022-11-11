@@ -29,7 +29,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    private JwtUtils jwtUtils;
+    private JwtUtils jwtUtil;
 
     /**
      * Creamos filtro interno
@@ -40,33 +40,28 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
      * @throws IOException
      */
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
 
         //Obtenemos el Header
         String requestTokenHeader = request.getHeader("Authorization");
-
         String username = null;
         String jwtToken = null;
 
-        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
-
-            //asignamos el token despues del 7 caracter
+        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")){
             jwtToken = requestTokenHeader.substring(7);
 
-            try {
-                /*
-                extaermos el username de el token ya recortado anteriormente
-                */
-                 username = this.jwtUtils.extractUsername(jwtToken);
-
-
-            } catch (ExpiredJwtException expiredJwtException) {
+            try{
+                username = this.jwtUtil.extractUsername(jwtToken);
+            }catch (ExpiredJwtException exception){
                 System.out.println("El token ha expirado");
-            } catch (Exception exception) {
-                exception.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+
         }else{
-            System.out.println("Token invalido, no empieza con Bearer string");
+            System.out.println("Token invalido , no empieza con bearer string");
         }
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
@@ -75,11 +70,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
 
             //Realizamos la validacion del token con los detalles de ese usuario
-            if(this.jwtUtils.validateToken(jwtToken,userDetails)){
-                UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
-                usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+            if(this.jwtUtil.validateToken(jwtToken,userDetails)){
+                if(this.jwtUtil.validateToken(jwtToken,userDetails)){
+                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
+                    usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                }
             }else{
                 System.out.println("El token no es valido");
             }

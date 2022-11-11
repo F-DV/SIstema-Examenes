@@ -30,7 +30,7 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter {
     private JwtAuthenticationEntryPoint unauthorizedHandler;
 
     @Autowired
-    private UserDetailsServiceImpl userDetailsServiceImpl;
+    private UserDetailsService userDetailsService;
 
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
@@ -50,7 +50,7 @@ public class MySecurityConfig  extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(this.userDetailsServiceImpl).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(this.userDetailsService).passwordEncoder(passwordEncoder());
     }
 
     @Override

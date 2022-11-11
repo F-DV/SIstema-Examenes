@@ -31,7 +31,6 @@ public class AuthenticationController {
     private JwtUtils jwtUtils;
 
     @PostMapping("/generate-token")
-
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
 
         try{
@@ -52,7 +51,7 @@ public class AuthenticationController {
             throw new Exception("USUARIO DESABILITADO" + disabledException.getMessage());
 
         }catch(BadCredentialsException badCredentialsException){
-            throw new Exception("CREDENCIALES INVALIDAD" + badCredentialsException.getMessage());
+            throw new Exception("CREDENCIALES INVALIDAS" + badCredentialsException.getMessage());
         }
     }
 }

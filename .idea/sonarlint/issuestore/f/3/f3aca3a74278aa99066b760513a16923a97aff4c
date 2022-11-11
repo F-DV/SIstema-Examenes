@@ -1,0 +1,12 @@
+
+Q	java:S125"<This block of commented-out lines of code should be removed.(Ç­‚û
+T
+java:S1128"?Remove this unused import 'com.sistema.examenes.entities.Role'.(«Í¤M
+Z
+java:S1128"?Remove this unused import 'com.sistema.examenes.entities.User'.(ê™Ù³şÿÿÿÿ
+Y
+java:S1128"CRemove this unused import 'com.sistema.examenes.entities.UserRole'.(²€÷«
+C
+java:S1128".Remove this unused import 'java.util.HashSet'.(Ê‚êX
+E
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤şÿÿÿÿ
