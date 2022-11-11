@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-login',
@@ -12,13 +13,15 @@ export class LoginComponent implements OnInit {
     "username" : "",
     "password" : ""
   }
-  constructor(private snack:MatSnackBar) { }
+  constructor(
+    private snack:MatSnackBar,
+    private loginService:LoginService) { }
 
   ngOnInit(): void {
   }
 
   formSubmit(){
-    //console.log("CLick en el boton de login");
+
     if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
       this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
         duration:3000
@@ -32,6 +35,15 @@ export class LoginComponent implements OnInit {
       })
       return;
     }
+    this.loginService.generateToken(this.loginData).subscribe(
+      (data:any) => {
+        console.log(data);
+      },(error) => {
+        console.log("un error: ",error);
+      }
+    )
   }
+
+
 
 }
