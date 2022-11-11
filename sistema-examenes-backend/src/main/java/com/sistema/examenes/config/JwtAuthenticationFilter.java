@@ -24,69 +24,45 @@ import java.io.IOException;
  */
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
-
     @Autowired
     private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
-    private JwtUtils jwtUtils;
+    private JwtUtils jwtUtil;
 
-    /**
-     * Creamos filtro interno
-     * @param request
-     * @param response
-     * @param filterChain
-     * @throws ServletException
-     * @throws IOException
-     */
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
-        //Obtenemos el Header
         String requestTokenHeader = request.getHeader("Authorization");
-
         String username = null;
         String jwtToken = null;
 
-        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
-
-            //asignamos el token despues del 7 caracter
+        if(requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")){
             jwtToken = requestTokenHeader.substring(7);
 
-            try {
-                /*
-                extaermos el username de el token ya recortado anteriormente
-                */
-                 username = this.jwtUtils.extractUsername(jwtToken);
-
-
-            } catch (ExpiredJwtException expiredJwtException) {
+            try{
+                username = this.jwtUtil.extractUsername(jwtToken);
+            }catch (ExpiredJwtException exception){
                 System.out.println("El token ha expirado");
-            } catch (Exception exception) {
-                exception.printStackTrace();
+            }catch (Exception e){
+                e.printStackTrace();
             }
+
         }else{
-            System.out.println("Token invalido, no empieza con Bearer string");
+            System.out.println("Token invalido , no empieza con bearer string");
         }
 
         if(username != null && SecurityContextHolder.getContext().getAuthentication() == null){
-
-            //Detalles del usuario
             UserDetails userDetails = this.userDetailsService.loadUserByUsername(username);
-
-            //Realizamos la validacion del token con los detalles de ese usuario
-            if(this.jwtUtils.validateToken(jwtToken,userDetails)){
+            if(this.jwtUtil.validateToken(jwtToken,userDetails)){
                 UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails,null,userDetails.getAuthorities());
                 usernamePasswordAuthenticationToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
                 SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            }else{
-                System.out.println("El token no es valido");
             }
-            filterChain.doFilter(request,response);
-
-
+        }else{
+            System.out.println("El token no es valido");
         }
+        filterChain.doFilter(request,response);
     }
 
 }
