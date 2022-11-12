@@ -8,16 +8,40 @@
   </a>
   <span>Portal de exámenes</span>
   <span class="example-spacer"></span>
-  <a routerLink="/login"
+  <a
+    *ngIf = "!login.isLoggedIn()"
+    [routerLink]="'/login'"
     mat-icon-button
     class="example-icon favorite-icon"
     aria-label = "Example icon-button with heart icon">
     Iniciar Session
   </a>
-  <a routerLink="/signup"
+
+  <a
+    *ngIf = "!login.isLoggedIn()"
+    [routerLink]="'/signup'"
     mat-icon-button
     class="example-icon favorite-icon mr20 m170"
     aria-label = "Example icon-button with heart icon">
     Registrar
   </a>
+
+  <a
+    *ngIf = "login.isLoggedIn()"
+    (click)="logout()"
+    style="margin-right: 50px;"
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label = "Example icon-button with heart icon">
+    Cerrar Sessión
+  </a>
+  <button
+    *ngIf = "login.isLoggedIn()"
+    mat-button
+    style = "margin-right: 10px;"
+    class="example-icon favorite-icon"
+    aria-label = "Example icon-button with heart icon"
+  >
+    {{login.getUser().username}}
+  </button>
 </mat-toolbar>

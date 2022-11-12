@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   }
   constructor(
     private snack:MatSnackBar,
-    private loginService:LoginService) { }
+    private loginService:LoginService,
+    private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -49,10 +51,13 @@ export class LoginComponent implements OnInit {
 
           if(this.loginService.getUserRole() == 'ADMIN'){
             //Mostramos dashboard Admin
-            window.location.href = '/admin'
+            //window.location.href = '/admin'
+            this.router.navigate(['admin']);
+
           }else if(this.loginService.getUserRole()== 'NORMAL'){
             //Mostramos el dashboard del user
-            window.location.href = '/user'
+            //window.location.href = '/user'
+            this.router.navigate(['user']);
           }else{
             this.loginService.logout();
           }
