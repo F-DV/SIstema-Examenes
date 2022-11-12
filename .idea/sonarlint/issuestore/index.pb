@@ -25,10 +25,6 @@ Psistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtUtils.jav
 esistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/UserDetailsServiceImpl.java,b\1\b17d2aaecf62b86034ea8a4b77082cacfdb1614c
 ~
 Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
-ã
-[sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/UserController.java,f\5\f5e835870e1210667f3ff720108d5170a52617eb
-à
-Xsistema-examenes-backend/src/main/java/com/sistema/examenes/config/MySecurityConfig.java,6\5\65ac18575cd74f7902ed63eaf06f726e6d8347aa
 ì
 csistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationEntryPoint.java,8\7\879b2944c0de60fc600da3a937672b1e8148ad3d
 è
