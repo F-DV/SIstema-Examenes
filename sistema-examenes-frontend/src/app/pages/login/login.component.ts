@@ -54,10 +54,16 @@ export class LoginComponent implements OnInit {
             //window.location.href = '/admin'
             this.router.navigate(['admin']);
 
+            //establecer el usuario que ha iniciado session
+            this.loginService.loginStatusSubject.next(true);
+
           }else if(this.loginService.getUserRole()== 'NORMAL'){
             //Mostramos el dashboard del user
             //window.location.href = '/user'
             this.router.navigate(['user']);
+
+            //establecer el usuario que ha iniciado session
+            this.loginService.loginStatusSubject.next(true);
           }else{
             this.loginService.logout();
           }
