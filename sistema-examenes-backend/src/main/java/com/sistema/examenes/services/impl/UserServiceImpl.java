@@ -2,6 +2,7 @@ package com.sistema.examenes.services.impl;
 
 import com.sistema.examenes.entities.User;
 import com.sistema.examenes.entities.UserRole;
+import com.sistema.examenes.exceptions.UserFoundEcxeption;
 import com.sistema.examenes.repositories.RoleRepository;
 import com.sistema.examenes.repositories.UserRepository;
 import com.sistema.examenes.services.UserService;
@@ -38,7 +39,7 @@ public class UserServiceImpl implements UserService {
 
     if(localUser != null){
         System.out.println("El usuario ya existe");
-        throw new Exception("El usuario ya esta presente");
+        throw new UserFoundEcxeption("El usuario ya esta presente");
     }else{
         for(UserRole userRole:userRoleSet){
             roleRepository.save(userRole.getRole());

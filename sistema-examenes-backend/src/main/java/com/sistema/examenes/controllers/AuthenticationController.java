@@ -2,6 +2,7 @@ package com.sistema.examenes.controllers;
 
 import com.sistema.examenes.config.JwtUtils;
 import com.sistema.examenes.entities.User;
+import com.sistema.examenes.exceptions.UserNotFoundException;
 import com.sistema.examenes.security.JwtRequest;
 import com.sistema.examenes.security.JwtResponse;
 import com.sistema.examenes.services.impl.UserDetailsServiceImpl;
@@ -35,7 +36,7 @@ public class AuthenticationController {
 
         try{
             authenticate(jwtRequest.getUsername(),jwtRequest.getPassword());
-        }catch (Exception e) {
+        }catch (UserNotFoundException e) {
             e.printStackTrace();
             throw  new Exception("USUARIO NO ENCONTRADO");
         }
