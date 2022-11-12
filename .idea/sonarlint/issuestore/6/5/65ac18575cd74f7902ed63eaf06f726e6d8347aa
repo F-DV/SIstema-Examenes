@@ -1,0 +1,9 @@
+
+Z
+java:S1874"DRemove this use of "WebSecurityConfigurerAdapter"; it is deprecated.(€¬›¥
+X
+java:S1874/";Remove this use of "NoOpPasswordEncoder"; it is deprecated.(å‰ö8¹ÆíÅÆ0
+
+java:S1128"dRemove this unused import 'org.springframework.security.config.annotation.web.builders.WebSecurity'.(–ëğ8ªİİÄÆ0
+z
+java:S1128"]Remove this unused import 'org.springframework.security.core.userdetails.UserDetailsService'.(¶…¥à8‡‰ÁÅÆ0

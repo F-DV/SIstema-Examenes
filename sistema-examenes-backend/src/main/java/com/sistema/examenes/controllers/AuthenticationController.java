@@ -1,6 +1,7 @@
 package com.sistema.examenes.controllers;
 
 import com.sistema.examenes.config.JwtUtils;
+import com.sistema.examenes.entities.User;
 import com.sistema.examenes.security.JwtRequest;
 import com.sistema.examenes.security.JwtResponse;
 import com.sistema.examenes.services.impl.UserDetailsServiceImpl;
@@ -12,10 +13,9 @@ import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.security.Principal;
 
 @RestController
 @CrossOrigin("*")
@@ -31,7 +31,6 @@ public class AuthenticationController {
     private JwtUtils jwtUtils;
 
     @PostMapping("/generate-token")
-
     public ResponseEntity<?> generateToken(@RequestBody JwtRequest jwtRequest) throws Exception{
 
         try{
@@ -43,6 +42,12 @@ public class AuthenticationController {
         UserDetails userDetails = this.userDetailsService.loadUserByUsername(jwtRequest.getUsername());
         String token = this.jwtUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
+    }
+
+    //Obtener el usuario actual
+    @GetMapping("/actual-user")
+    public User getActualUser(Principal principal){
+        return (User) this.userDetailsService.loadUserByUsername(principal.getName());
     }
 
     private void authenticate(String username,String password) throws Exception{
