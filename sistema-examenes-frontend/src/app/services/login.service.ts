@@ -64,6 +64,11 @@ export class LoginService {
     return user.authorities[0].authority;
   }
 
+  //Obtener el usuario actual que inicia session
+  public getCurrentUser(){
+    return this.http.get(`${baseUrl}actual-user`);
+  }
+
 
 
 }
