@@ -5,6 +5,7 @@ import com.sistema.examenes.entities.User;
 import com.sistema.examenes.entities.UserRole;
 import com.sistema.examenes.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -12,13 +13,22 @@ import java.util.Set;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin("*")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     @PostMapping("/")
     public User saveUser(@RequestBody User user) throws Exception{
+        user.setProfile("default.png");
+
+        //Encriptamos la contraseña que recibimos del cliente
+        user.setPassword(this.bCryptPasswordEncoder.encode(user.getPassword()));
+
         Set<UserRole> roles = new HashSet<>();
 
         Role role = new Role();
@@ -29,6 +39,7 @@ public class UserController {
         userRole.setUser(user);
         userRole.setRole(role);
 
+        roles.add(userRole);
         return userService.saveUser(user,roles);
 
     }
