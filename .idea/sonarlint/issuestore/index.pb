@@ -3,10 +3,6 @@
 \sistema-examenes-backend/src/main/java/com/sistema/examenes/repositories/RoleRepository.java,a\2\a297fd3fa7d5fcaf37014416eab642e9b146a66c
 å
 \sistema-examenes-backend/src/main/java/com/sistema/examenes/repositories/UserRepository.java,1\8\1880de94c3d703fa942382fc5dafd3bc928dd3fc
-~
-Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/Role.java,5\9\59ebb7200d7c7a1a4121908a48e059075d4a0e66
-Ç
-Rsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/UserRole.java,0\a\0ac83d5e4a31454da5498fb0b6586cee0d6988a5
 [
 +.idea/libraries/Maven__junit_junit_4_13.xml,d\a\daa58968305a510143a792d09d7af57af42e897f
 i
@@ -23,8 +19,6 @@ Usistema-examenes-backend/src/main/java/com/sistema/examenes/security/JwtRespons
 Psistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtUtils.java,c\b\cb48265cc275e14f8d3bb32307a6f007ae76afb6
 ï
 esistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/UserDetailsServiceImpl.java,b\1\b17d2aaecf62b86034ea8a4b77082cacfdb1614c
-~
-Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
 ì
 csistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationEntryPoint.java,8\7\879b2944c0de60fc600da3a937672b1e8148ad3d
 è
