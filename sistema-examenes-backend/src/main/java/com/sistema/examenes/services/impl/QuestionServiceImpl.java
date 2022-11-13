@@ -3,6 +3,7 @@ package com.sistema.examenes.services.impl;
 import com.sistema.examenes.entities.Exam;
 import com.sistema.examenes.entities.Question;
 import com.sistema.examenes.repositories.QuestionRepository;
+import com.sistema.examenes.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

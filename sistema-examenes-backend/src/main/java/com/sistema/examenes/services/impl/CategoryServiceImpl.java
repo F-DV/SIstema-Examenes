@@ -4,10 +4,12 @@ import com.sistema.examenes.entities.Category;
 import com.sistema.examenes.repositories.CategoryRepository;
 import com.sistema.examenes.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+@Service
 public class CategoryServiceImpl implements CategoryService {
 
     @Autowired

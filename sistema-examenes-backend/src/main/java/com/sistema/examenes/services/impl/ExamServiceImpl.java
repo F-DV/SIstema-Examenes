@@ -4,10 +4,12 @@ import com.sistema.examenes.entities.Exam;
 import com.sistema.examenes.repositories.ExamRepository;
 import com.sistema.examenes.services.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
 
+@Service
 public class ExamServiceImpl implements ExamService {
 
     @Autowired

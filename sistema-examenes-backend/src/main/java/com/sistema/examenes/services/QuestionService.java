@@ -1,4 +1,4 @@
-package com.sistema.examenes.services.impl;
+package com.sistema.examenes.services;
 
 import com.sistema.examenes.entities.Exam;
 import com.sistema.examenes.entities.Question;

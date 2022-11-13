@@ -23,7 +23,7 @@ public class Exam {
     private Category category;
 
     @OneToMany(mappedBy = "exam",fetch = FetchType.LAZY)
-    @JsonIgnore
+    @JsonIgnore //Cuando llamo las categorias, ignora los examenes relacionados a esta categoria
     private Set<Question> questions = new HashSet<>();
 
     public Exam() {
