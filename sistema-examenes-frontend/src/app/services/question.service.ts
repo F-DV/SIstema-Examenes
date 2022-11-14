@@ -10,7 +10,7 @@ export class QuestionService {
   constructor(private http:HttpClient) { }
 
   public listQuestionOfExam(examId:any){
-    return this.http.get(`${baseUrl}pregunta/todos${examId}`);
+    return this.http.get(`${baseUrl}pregunta/examen/todos/${examId}`);
   }
 
 

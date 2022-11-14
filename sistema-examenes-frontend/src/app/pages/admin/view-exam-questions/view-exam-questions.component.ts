@@ -20,6 +20,8 @@ export class ViewExamQuestionsComponent implements OnInit {
   ngOnInit(): void {
     this.examId = this.route.snapshot.params['examId'];
     this.title = this.route.snapshot.params['title'];
+    console.log(this.title);
+
     this.questionService.listQuestionOfExam(this.examId).subscribe(
       (data) =>{
         console.log(data);
