@@ -12,4 +12,8 @@ export class ExamService {
   public listExams(){
     return this.http.get(`${baseUrl}examen/`);
   }
+
+  public addExam(exam:any){
+    return this.http.post(`${baseUrl}examen/`,exam);
+  }
 }
