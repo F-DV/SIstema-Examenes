@@ -26,4 +26,29 @@ export class ViewExamsComponent implements OnInit {
     )
   }
 
+  deleteExam(examId:any){
+    Swal.fire({
+      title:'Eliminar Examen',
+      text:'¿Estas segur@ de eliminar el examen?',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonColor:'#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText:'Eliminar',
+      cancelButtonText:'Cancelar'
+    }).then((result) =>{
+      if(result.isConfirmed){
+        this.examService.deleteExam(examId).subscribe(
+          (data) => {
+            this.exams = this.exams.filter((exam:any) => exam.examId != examId);
+            Swal.fire('Examen Eliminado','el examen ha sido eliminado de la base de datos','success');
+          },
+          (error) => {
+            Swal.fire('Error','Error al eliminar el examen','error');
+          }
+        )
+      }
+    })
+  }
+
 }
