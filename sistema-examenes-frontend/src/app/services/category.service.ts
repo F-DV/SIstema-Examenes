@@ -12,4 +12,8 @@ export class CategoryService {
   public listCategories(){
     return this.http.get(`${baseUrl}categoria/`);
   }
+
+  public addCategory(category:any){
+    return this.http.post(`${baseUrl}categoria/`,category);
+  }
 }
