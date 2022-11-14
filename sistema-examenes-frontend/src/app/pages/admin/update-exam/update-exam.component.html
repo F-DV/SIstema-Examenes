@@ -1,23 +1,23 @@
 <mat-card>
-  <h1>Agregar nuevo examen</h1>
+  <h1>Actualizar examen</h1>
   <div class="row">
     <div class="col-md-8 offset-md-2">
-      <form (ngSubmit)="saveExam()">
+      <form *ngIf = "exam" (ngSubmit)="updateData()">
         <mat-form-field class="w100" appearance="fill">
           <mat-label>Titulo</mat-label>
           <input
-          [(ngModel)] = "examData.title"
+          [(ngModel)] = "exam.title"
           type="text"
           name="title"
           placeholder="Digite el titulo"
           matInput
-          required=""
+          required
           >
         </mat-form-field>
         <mat-form-field class="w100" appearance="fill">
           <mat-label>Descripcion</mat-label>
           <textarea
-          [(ngModel)] = "examData.description"
+          [(ngModel)] = "exam.description"
           type="text"
           name="description"
           placeholder="Digite una descripcion"
@@ -30,7 +30,7 @@
             <mat-form-field class="w100" appearance="fill">
               <mat-label>Puntos Maximos</mat-label>
               <input
-              [(ngModel)] = "examData.max_points"
+              [(ngModel)] = "exam.max_points"
               type="text"
               name="max_points"
               placeholder="Digite la cantidad de puntos"
@@ -42,7 +42,7 @@
             <mat-form-field class="w100" appearance="fill">
               <mat-label>Número de preguntas</mat-label>
               <input
-              [(ngModel)] = "examData.question_number"
+              [(ngModel)] = "exam.question_number"
               type="text"
               name="question_number"
               placeholder="Digite el numero de preguntas"
@@ -52,7 +52,7 @@
           </div>
         </div>
         <mat-slide-toggle
-        [(ngModel)]="examData.active"
+        [(ngModel)]="exam.active"
         name="active"
         class="mt20"
         [checked]="false"
@@ -63,7 +63,7 @@
           <mat-label>Categorias</mat-label>
           <mat-select
           name="category"
-          [(ngModel)]="examData.category.categoryId"
+          [(ngModel)]="exam.category.categoryId"
           >
         <mat-option *ngFor="let c of categories" [value]="c.categoryId">
           {{c.title}}
@@ -77,4 +77,4 @@
     </div>
   </div>
 </mat-card>
-{{examData | json}}
+{{exam | json}}
