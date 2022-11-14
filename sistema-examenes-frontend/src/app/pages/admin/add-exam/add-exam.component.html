@@ -6,6 +6,7 @@
         <mat-form-field class="w100" appearance="fill">
           <mat-label>Titulo</mat-label>
           <input
+          [(ngModel)] = "examData.title"
           type="text"
           name="title"
           placeholder="Digite el titulo"
@@ -15,6 +16,7 @@
         <mat-form-field class="w100" appearance="fill">
           <mat-label>Descripcion</mat-label>
           <textarea
+          [(ngModel)] = "examData.description"
           type="text"
           name="description"
           placeholder="Digite una descripcion"
@@ -27,6 +29,7 @@
             <mat-form-field class="w100" appearance="fill">
               <mat-label>Puntos Maximos</mat-label>
               <input
+              [(ngModel)] = "examData.max_points"
               type="text"
               name="max_points"
               placeholder="Digite la cantidad de puntos"
@@ -38,6 +41,7 @@
             <mat-form-field class="w100" appearance="fill">
               <mat-label>Número de preguntas</mat-label>
               <input
+              [(ngModel)] = "examData.question_number"
               type="text"
               name="question_number"
               placeholder="Digite el numero de preguntas"
@@ -46,7 +50,30 @@
             </mat-form-field>
           </div>
         </div>
+        <mat-slide-toggle
+        [(ngModel)]="examData.active"
+        name="active"
+        class="mt20"
+        [checked]="false"
+        color="primary">
+          Estado de publicación
+        </mat-slide-toggle>
+        <mat-form-field appearance="fill" class="mt20 w100">
+          <mat-label>Categorias</mat-label>
+          <mat-select
+          name="category"
+          [(ngModel)]="examData.category.categoryId"
+          >
+        <mat-option *ngFor="let c of categories" [value]="c.categoryId">
+          {{c.title}}
+        </mat-option>
+        </mat-select>
+        </mat-form-field>
+        <div class="container text-center">
+          <button mat-raised-button color="primary">Agregar</button>
+        </div>
       </form>
     </div>
   </div>
 </mat-card>
+{{examData | json}}
