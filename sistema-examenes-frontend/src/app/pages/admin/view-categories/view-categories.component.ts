@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-categories',
@@ -7,31 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewCategoriesComponent implements OnInit {
 
-  categories = [
-  {
-    categoryId:1,
-    title:'Lenguajes de programación',
-    description:'Esta es una categoria de prueba'
-  },
-  {
-    categoryId:1,
-    title:'Lenguajes de programación',
-    description:'Esta es una categoria de prueba'
-  },
-  {
-    categoryId:1,
-    title:'Lenguajes de programación',
-    description:'Esta es una categoria de prueba'
-  },
-  {
-    categoryId:1,
-    title:'Lenguajes de programación',
-    description:'Esta es una categoria de prueba'
-  }
-  ]
-  constructor() { }
+  categories:any = [];
+
+  constructor(private categoryService:CategoryService) { }
 
   ngOnInit(): void {
+
+    this.categoryService.listCategories().subscribe(
+      (data:any) => {
+        this.categories = data;
+        console.log(this.categories);
+      },
+      (error) =>{
+        console.log(error);
+        Swal.fire('Error al cargar las categorias', 'error');
+      }
+    )
   }
 
 }
