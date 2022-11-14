@@ -31,6 +31,7 @@ import { AddExamComponent } from './pages/admin/add-exam/add-exam.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
+import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/view-exam-questions.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.compo
     AddCategoryComponent,
     ViewExamsComponent,
     AddExamComponent,
-    UpdateExamComponent
+    UpdateExamComponent,
+    ViewExamQuestionsComponent
   ],
   imports: [
     BrowserModule,

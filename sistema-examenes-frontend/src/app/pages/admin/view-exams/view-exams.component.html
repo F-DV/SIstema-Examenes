@@ -10,12 +10,13 @@
       </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <button mat-flat-button color="primary">Preguntas</button>
+    <button [routerLink]="'/admin/view-questions/'+e.examId+'/'+ e.title" mat-flat-button color="primary">Preguntas {{e.question_number}}</button>
     <button mat-stroked-button color="primary" class="ml20">Puntos Máximos {{e.max_points}}</button>
     <button mat-stroked-button color="primary" class="ml20">Preguntas {{e.question_number}}</button>
     <button [routerLink]="'/admin/exam/'+ e.examId" mat-flat-button color="primary" class="ml20">Actualizar</button>
     <button mat-flat-button color="primary" class="ml20">Intentos</button>
     <button mat-raised-button color="warn" class="ml10" (click)="deleteExam(e.examId)">Eliminar</button>
+
   </mat-card-content>
 </mat-card>
 <div class="container text-center mt20">
