@@ -14,6 +14,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { LoadExamComponent } from './pages/user/load-exam/load-exam.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
 import { NormalGuard } from './services/normal.guard';
@@ -84,8 +85,13 @@ const routes: Routes = [
   {
     path : 'user',
     component : UserDashboardComponent,
-    pathMatch : 'full',
-    canActivate:[NormalGuard]
+    canActivate:[NormalGuard],
+    children: [
+      {
+        path:':catId',
+        component:LoadExamComponent
+      }
+    ]
   },
 
 ];

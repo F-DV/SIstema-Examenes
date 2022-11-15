@@ -35,6 +35,7 @@ import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/vi
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
 import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
+import { LoadExamComponent } from './pages/user/load-exam/load-exam.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.com
     ViewExamQuestionsComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
-    UserSidebarComponent
+    UserSidebarComponent,
+    LoadExamComponent
   ],
   imports: [
     BrowserModule,

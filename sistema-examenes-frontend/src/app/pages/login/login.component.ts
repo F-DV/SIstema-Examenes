@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
           }else if(this.loginService.getUserRole()== 'NORMAL'){
             //Mostramos el dashboard del user
             //window.location.href = '/user'
-            this.router.navigate(['user']);
+            this.router.navigate(['user/0']);
 
             //establecer el usuario que ha iniciado session
             this.loginService.loginStatusSubject.next(true);
