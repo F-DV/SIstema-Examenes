@@ -33,6 +33,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { UpdateExamComponent } from './pages/admin/update-exam/update-exam.component';
 import { ViewExamQuestionsComponent } from './pages/admin/view-exam-questions/view-exam-questions.component';
 import { AddQuestionComponent } from './pages/admin/add-question/add-question.component';
+import { UpdateQuestionComponent } from './pages/admin/update-question/update-question.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { AddQuestionComponent } from './pages/admin/add-question/add-question.co
     AddExamComponent,
     UpdateExamComponent,
     ViewExamQuestionsComponent,
-    AddQuestionComponent
+    AddQuestionComponent,
+    UpdateQuestionComponent
   ],
   imports: [
     BrowserModule,

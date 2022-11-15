@@ -21,4 +21,11 @@ export class QuestionService {
     return this.http.delete(`${baseUrl}pregunta/${questionId}`);
   }
 
+  public updateQuestion(question:any){
+    return this.http.put(`${baseUrl}pregunta/`,question);
+  }
+
+  public getQuestion(questionId:any){
+    return this.http.get(`${baseUrl}pregunta/${questionId}`);
+  }
 }

@@ -58,7 +58,7 @@ export class AddQuestionComponent implements OnInit {
     console.log('im here');
     this.questionService.saveQuestion(this.question).subscribe(
       (data) => {
-
+        this.question = data;
         Swal.fire('Pregunta guardada','La oregunta ha sido guardada con éxito','success');
         this.question.content = '';
         this.question.option1 = '';
