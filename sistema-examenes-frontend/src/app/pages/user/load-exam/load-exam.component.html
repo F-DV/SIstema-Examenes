@@ -24,9 +24,16 @@
                 <button mat-button color="accent">P.M : {{e.max_points}}</button>
               </mat-card-actions>
             </mat-card-content>
-
         </mat-card>
       </div>
+      <div class="col-md-12" *ngIf="exams.length == 0">
+        <mat-card>
+          <mat-card-content>
+            <h1>No hay exámenes en esta categoria</h1>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
     </div>
   </div>
 </div>
