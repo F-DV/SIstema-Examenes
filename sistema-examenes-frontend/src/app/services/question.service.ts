@@ -14,8 +14,11 @@ export class QuestionService {
   }
 
   public saveQuestion(question:any){
-    return this.http.post(`${baseUrl}pregunta`,question);
+    return this.http.post(`${baseUrl}pregunta/`,question);
   }
 
+  public deleteQuestion(questionId:any){
+    return this.http.delete(`${baseUrl}pregunta/${questionId}`);
+  }
 
 }

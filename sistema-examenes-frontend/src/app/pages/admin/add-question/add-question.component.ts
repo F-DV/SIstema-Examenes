@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
@@ -24,7 +25,8 @@ export class AddQuestionComponent implements OnInit {
 
   constructor(
     private route:ActivatedRoute,
-    private questionService:QuestionService
+    private questionService:QuestionService,
+    private snack:MatSnackBar
     ) { }
 
   ngOnInit(): void {
