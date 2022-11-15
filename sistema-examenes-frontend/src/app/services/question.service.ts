@@ -13,5 +13,9 @@ export class QuestionService {
     return this.http.get(`${baseUrl}pregunta/examen/todos/${examId}`);
   }
 
+  public saveQuestion(question:any){
+    return this.http.post(`${baseUrl}pregunta`,question);
+  }
+
 
 }
