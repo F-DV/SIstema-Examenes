@@ -21,3 +21,13 @@ Psistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtUtils.jav
 csistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationEntryPoint.java,8\7\879b2944c0de60fc600da3a937672b1e8148ad3d
 è
 _sistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationFilter.java,3\d\3d2bf7ccbaa66b5276402d6c3f52c5d84bfc6704
+è
+_sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/CategoryController.java,1\4\143f6b07e18ef5a4d9d6cce7e74d48f2d60907cd
+~
+Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/Exam.java,1\0\1078228b7df23349b6201021c70488fa1b2df862
+~
+Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
+í
+bsistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/QuestionServiceImpl.java,6\d\6de046ce3db506dc3cdd8e4e7a6faf7d225cbd73
+â
+Ysistema-examenes-backend/src/main/java/com/sistema/examenes/services/QuestionService.java,c\8\c8e9288bc3f3184ed63ce12c6fe5c84a1ce92f65

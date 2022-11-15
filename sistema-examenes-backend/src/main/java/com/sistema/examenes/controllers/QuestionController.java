@@ -58,4 +58,12 @@ public class QuestionController {
     public void deleteQuestion(@PathVariable("preguntaId") Long questionId){
         this.questionService.deleteQuestion(questionId);
     }
+
+    @GetMapping("/examen/todos/{examenId}")
+    public ResponseEntity<?> listQuestionOfExamAsAnAdministrator(@PathVariable("examenId")long examenId){
+        Exam exam = new Exam();
+        exam.setExamId(examenId);
+        Set<Question> questions = this.questionService.getExamQuestions(exam);
+        return ResponseEntity.ok((questions));
+    }
 }
