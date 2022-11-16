@@ -47,7 +47,21 @@
 
         <!-- barra de progreso -->
         <div class="col-md-3">
-          Barra de progreso
+          <mat-card style="margin-top: 70px;">
+            <mat-card-header>
+              <mat-card-title>
+                Temporizador
+              </mat-card-title>
+              <mat-card-subtitle>
+                El cuestionario se enviará automáticamente cuando el temporizador llegue a 0:0
+              </mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+              <h1 class="text-center">{{getFormatHour()}}</h1>
+              <mat-spinner mode="determinate" style="margin:auto;" [value]="(timer/(this.questions.length * 2 * 60)*100)">
+              </mat-spinner>
+            </mat-card-content>
+          </mat-card>
         </div>
       </div>
     </div>
@@ -70,6 +84,7 @@
         </mat-card-content>
         <mat-card-actions class="text-center">
           <button mat-raised-button color="primary">Imprimir</button>
+          <button mat-raised-button color="accent" [routerLink]="'/user/0'">Inicio</button>
         </mat-card-actions>
       </mat-card>
     </div>

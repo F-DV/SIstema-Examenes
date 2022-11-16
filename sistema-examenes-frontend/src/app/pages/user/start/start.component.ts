@@ -16,7 +16,9 @@ export class StartComponent implements OnInit {
   pointsAchieved = 0;
   correctAnswers = 0;
   attempts = 0;
+
   isSend = false;
+  timer:any;
 
   constructor(
     private locationSt:LocationStrategy,
@@ -37,10 +39,13 @@ export class StartComponent implements OnInit {
         console.log(data);
         this.questions = data;
 
+        this.timer = this.questions.length * 2 * 60;
+
         this.questions.forEach((p:any) => {
           p['answerGiven'] = '';
         })
         console.log(this.questions);
+        this.startTimer();
       },
       (error)=>{
         console.log(error);
@@ -65,26 +70,44 @@ export class StartComponent implements OnInit {
       cancelButtonText:'Cancelar'
     }).then((result) =>{
       if(result.isConfirmed){
-        this.isSend = true;
-        this.questions.forEach((p:any) => {
-          if(p.answerGiven == p.answer){
-            this.correctAnswers ++;
-            let points = this.questions[0].exam.max_points/this.questions.length;
-            this.pointsAchieved += points;
-          }
-          if(p.answerGiven.trim() != ''){
-            this.attempts ++;
-          }
-        })
-        console.log("Respuestas correctas: " + this.correctAnswers);
-        console.log("Puntos Conseguidos: " + this.pointsAchieved);
-        console.log("Intentos:  " + this.attempts);
-        console.log(this.questions);
+        this.evaluateExam();
       }
     })
 
   }
 
+  startTimer(){
+    let t = window.setInterval(() => {
+      if(this.timer <=0){
+        this.sendExam();
+        clearInterval(t);
+      }else{
+        this.timer--;
+      }
+    },1000)
+  }
 
+  getFormatHour(){
+    let mm = Math.floor(this.timer/60);
+    let ss = this.timer -mm*60;
+    return `${mm} : min : ${ss} seg`;
+  }
 
+  evaluateExam(){
+    this.isSend = true;
+    this.questions.forEach((p:any) => {
+      if(p.answerGiven == p.answer){
+        this.correctAnswers ++;
+        let points = this.questions[0].exam.max_points/this.questions.length;
+        this.pointsAchieved += points;
+      }
+      if(p.answerGiven.trim() != ''){
+        this.attempts ++;
+      }
+    })
+    console.log("Respuestas correctas: " + this.correctAnswers);
+    console.log("Puntos Conseguidos: " + this.pointsAchieved);
+    console.log("Intentos:  " + this.attempts);
+    console.log(this.questions);
+  }
 }
