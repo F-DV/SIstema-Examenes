@@ -62,8 +62,7 @@ export class StartComponent implements OnInit {
 
   sendExam(){
     Swal.fire({
-      title:'¿Estas seguro de enviar el examen',
-      text:'¿Estas segur@ de eliminar el examen?',
+      title:'¿Quieres enviar el examen?',
       icon:'info',
       confirmButtonText:'Enviar',
       cancelButtonText:'Cancelar'
@@ -78,7 +77,7 @@ export class StartComponent implements OnInit {
   startTimer(){
     let t = window.setInterval(() => {
       if(this.timer <=0 ){
-        this.sendExam();
+        this.evaluateExam();
         clearInterval(t);
       }else{
         this.timer--;
@@ -96,7 +95,7 @@ export class StartComponent implements OnInit {
     this.questionService.evaluateExam(this.questions).subscribe(
       (data:any) =>{
         this.attempts = data.max_points;
-        this.correctAnswers = data.correctAnswersM
+        this.correctAnswers = data.correctAnswers;
         this.attempts = data.attempts;
         this.isSend = true;
       },
@@ -104,22 +103,8 @@ export class StartComponent implements OnInit {
         console.log(error);
       }
     )
-    /*this.isSend = true;
-    this.questions.forEach((p:any) => {
-      if(p.answerGiven == p.answer){
-        this.correctAnswers ++;
-        let points = this.questions[0].exam.max_points/this.questions.length;
-        this.pointsAchieved += points;
-      }
-      if(p.answerGiven.trim() != ''){
-        this.attempts ++;
-      }
-    })
-    console.log("Respuestas correctas: " + this.correctAnswers);
-    console.log("Puntos Conseguidos: " + this.pointsAchieved);
-    console.log("Intentos:  " + this.attempts);
-    console.log(this.questions);*/
   }
+
   printPage(){
     window.print();
   }
