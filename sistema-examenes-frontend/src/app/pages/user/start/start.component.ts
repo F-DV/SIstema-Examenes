@@ -13,6 +13,10 @@ export class StartComponent implements OnInit {
 
   examId:any;
   questions:any;
+  pointsAchieved = 0;
+  correctAnswers = 0;
+  attempts = 0;
+  isSend = false;
 
   constructor(
     private locationSt:LocationStrategy,
@@ -32,6 +36,11 @@ export class StartComponent implements OnInit {
       (data:any)=> {
         console.log(data);
         this.questions = data;
+
+        this.questions.forEach((p:any) => {
+          p['answerGiven'] = '';
+        })
+        console.log(this.questions);
       },
       (error)=>{
         console.log(error);
@@ -46,5 +55,36 @@ export class StartComponent implements OnInit {
       history.pushState(null,null!,location.href);
     })
   }
+
+  sendExam(){
+    Swal.fire({
+      title:'¿Estas seguro de enviar el examen',
+      text:'¿Estas segur@ de eliminar el examen?',
+      icon:'info',
+      confirmButtonText:'Enviar',
+      cancelButtonText:'Cancelar'
+    }).then((result) =>{
+      if(result.isConfirmed){
+        this.isSend = true;
+        this.questions.forEach((p:any) => {
+          if(p.answerGiven == p.answer){
+            this.correctAnswers ++;
+            let points = this.questions[0].exam.max_points/this.questions.length;
+            this.pointsAchieved += points;
+          }
+          if(p.answerGiven.trim() != ''){
+            this.attempts ++;
+          }
+        })
+        console.log("Respuestas correctas: " + this.correctAnswers);
+        console.log("Puntos Conseguidos: " + this.pointsAchieved);
+        console.log("Intentos:  " + this.attempts);
+        console.log(this.questions);
+      }
+    })
+
+  }
+
+
 
 }
