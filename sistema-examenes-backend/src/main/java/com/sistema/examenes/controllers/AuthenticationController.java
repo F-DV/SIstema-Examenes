@@ -1,7 +1,7 @@
 package com.sistema.examenes.controllers;
 
 import com.sistema.examenes.config.JwtUtils;
-import com.sistema.examenes.entities.User;
+import com.sistema.examenes.services.entities.User;
 import com.sistema.examenes.exceptions.UserNotFoundException;
 import com.sistema.examenes.security.JwtRequest;
 import com.sistema.examenes.security.JwtResponse;
@@ -13,7 +13,6 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;

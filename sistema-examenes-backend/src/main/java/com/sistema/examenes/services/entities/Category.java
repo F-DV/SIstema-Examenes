@@ -1,4 +1,4 @@
-package com.sistema.examenes.entities;
+package com.sistema.examenes.services.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 

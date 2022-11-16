@@ -1,7 +1,7 @@
 package com.sistema.examenes.controllers;
 
-import com.sistema.examenes.entities.Category;
-import com.sistema.examenes.entities.Exam;
+import com.sistema.examenes.services.entities.Category;
+import com.sistema.examenes.services.entities.Exam;
 import com.sistema.examenes.services.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

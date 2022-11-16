@@ -39,3 +39,6 @@ background: #f5f5f5; }
 .mt10{
   margin-top: 10px !important;
 }
+.bgCard{
+  background-color:rgb(217, 217, 248)
+}

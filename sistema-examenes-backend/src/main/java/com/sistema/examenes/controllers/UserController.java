@@ -1,8 +1,8 @@
 package com.sistema.examenes.controllers;
 
-import com.sistema.examenes.entities.Role;
-import com.sistema.examenes.entities.User;
-import com.sistema.examenes.entities.UserRole;
+import com.sistema.examenes.services.entities.Role;
+import com.sistema.examenes.services.entities.User;
+import com.sistema.examenes.services.entities.UserRole;
 import com.sistema.examenes.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

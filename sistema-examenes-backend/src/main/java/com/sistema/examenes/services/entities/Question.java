@@ -1,4 +1,4 @@
-package com.sistema.examenes.entities;
+package com.sistema.examenes.services.entities;
 
 import javax.persistence.*;
 
@@ -18,6 +18,8 @@ public class Question {
 
     @Transient //El atributo no se persiste en la tabla
     private String answerGiven;
+
+    private String answer;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Exam exam;
@@ -82,10 +84,18 @@ public class Question {
     }
 
     public String getAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getAnswerGiven() {
         return answerGiven;
     }
 
-    public void setAnswer(String answerGiven) {
+    public void setAnswerGiven(String answerGiven) {
         this.answerGiven = answerGiven;
     }
 

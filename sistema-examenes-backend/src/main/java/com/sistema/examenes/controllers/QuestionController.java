@@ -1,17 +1,14 @@
 package com.sistema.examenes.controllers;
 
-import com.sistema.examenes.entities.Exam;
-import com.sistema.examenes.entities.Question;
+import com.sistema.examenes.services.entities.Exam;
+import com.sistema.examenes.services.entities.Question;
 import com.sistema.examenes.services.ExamService;
 import com.sistema.examenes.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @RequestMapping("/pregunta")
@@ -65,5 +62,31 @@ public class QuestionController {
         exam.setExamId(examenId);
         Set<Question> questions = this.questionService.getExamQuestions(exam);
         return ResponseEntity.ok((questions));
+    }
+
+    @PostMapping("/evaluar-examen")
+    public ResponseEntity<?> evaluateExam(@RequestBody List<Question> questions) {
+        double maxPoints = 0;
+        Integer correctAnwers = 0;
+        Integer attemps = 0;
+
+        for (Question p : questions) {
+            Question question = this.questionService.listQuestion(p.getQuestionId());
+            if (question.getAnswer().equals(p.getAnswerGiven())) {
+                correctAnwers++;
+                double points = Double.parseDouble(questions.get(0).getExam().getMax_points()) / questions.size();
+                maxPoints += points;
+            }
+            if (p.getAnswerGiven() != null) {
+                attemps++;
+            }
+        }
+
+        Map<String,Object> answers = new HashMap<>();
+        answers.put("maxPoints",maxPoints);
+        answers.put("correctAnswers",correctAnwers);
+        answers.put("attemps",attemps);
+        return ResponseEntity.ok(answers);
+
     }
 }

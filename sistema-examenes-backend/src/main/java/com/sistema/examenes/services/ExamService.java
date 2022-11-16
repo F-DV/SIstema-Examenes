@@ -1,7 +1,7 @@
 package com.sistema.examenes.services;
 
-import com.sistema.examenes.entities.Category;
-import com.sistema.examenes.entities.Exam;
+import com.sistema.examenes.services.entities.Category;
+import com.sistema.examenes.services.entities.Exam;
 
 import java.util.List;
 import java.util.Set;

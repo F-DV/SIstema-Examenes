@@ -1,6 +1,6 @@
 package com.sistema.examenes.repositories;
 
-import com.sistema.examenes.entities.User;
+import com.sistema.examenes.services.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User,Long> {

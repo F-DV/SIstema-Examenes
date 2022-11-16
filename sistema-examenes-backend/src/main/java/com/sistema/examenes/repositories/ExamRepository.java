@@ -1,7 +1,7 @@
 package com.sistema.examenes.repositories;
 
-import com.sistema.examenes.entities.Category;
-import com.sistema.examenes.entities.Exam;
+import com.sistema.examenes.services.entities.Category;
+import com.sistema.examenes.services.entities.Exam;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

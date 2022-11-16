@@ -1,7 +1,6 @@
 .profile-image{
   max-width: 150px;
   max-height: 150px;
-  border: 2px solid gainsboro;
   border-radius: 50%;
 }
 .table{
@@ -10,5 +9,5 @@
 }
 .table tr td{
   padding: 15px 10px;
-  border: 0.5px solid gainsboro;
+  border: 0.5px solid black;
 }

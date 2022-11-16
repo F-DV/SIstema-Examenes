@@ -1,6 +1,6 @@
 package com.sistema.examenes.services.impl;
 
-import com.sistema.examenes.entities.Category;
+import com.sistema.examenes.services.entities.Category;
 import com.sistema.examenes.repositories.CategoryRepository;
 import com.sistema.examenes.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
