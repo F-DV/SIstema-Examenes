@@ -1,0 +1,7 @@
+[build]
+  publish = "dist/sistema-examenes-frontend"
+  command = "npm run build"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
