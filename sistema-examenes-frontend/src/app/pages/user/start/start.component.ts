@@ -16,7 +16,6 @@ export class StartComponent implements OnInit {
   pointsAchieved = 0;
   correctAnswers = 0;
   attempts = 0;
-
   isSend = false;
   timer:any;
 
@@ -78,7 +77,7 @@ export class StartComponent implements OnInit {
 
   startTimer(){
     let t = window.setInterval(() => {
-      if(this.timer <=0){
+      if(this.timer <=0 ){
         this.sendExam();
         clearInterval(t);
       }else{
@@ -89,7 +88,7 @@ export class StartComponent implements OnInit {
 
   getFormatHour(){
     let mm = Math.floor(this.timer/60);
-    let ss = this.timer -mm*60;
+    let ss = this.timer - mm*60;
     return `${mm} : min : ${ss} seg`;
   }
 
