@@ -37,25 +37,24 @@ export class AddQuestionComponent implements OnInit {
   }
 
   formSubmit(){
-    if(this.question.content.trim()=='' || this.question.content == null){
-      return ;
+    if(this.question.content.trim() == '' || this.question.content == null){
+      return;
     }
-    if(this.question.option1.trim()=='' || this.question.option1 == null){
-      return ;
+    if(this.question.option1.trim() == '' || this.question.option1 == null){
+      return;
     }
-    if(this.question.option2.trim()=='' || this.question.option2 == null){
-      return ;
+    if(this.question.option2.trim() == '' || this.question.option2 == null){
+      return;
     }
-    if(this.question.option3.trim()=='' || this.question.option3 == null){
-      return ;
+    if(this.question.option3.trim() == '' || this.question.option3 == null){
+      return;
     }
-    if(this.question.option4.trim()=='' || this.question.option4 == null){
-      return ;
+    if(this.question.option4.trim() == '' || this.question.option4 == null){
+      return;
     }
-    if(this.question.answer.trim()=='' || this.question.aswer == null){
-      return ;
+    if(this.question.answer.trim() == '' || this.question.answer == null){
+      return;
     }
-    console.log('im here');
     this.questionService.saveQuestion(this.question).subscribe(
       (data) => {
         this.question = data;

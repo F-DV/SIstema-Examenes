@@ -93,7 +93,18 @@ export class StartComponent implements OnInit {
   }
 
   evaluateExam(){
-    this.isSend = true;
+    this.questionService.evaluateExam(this.questions).subscribe(
+      (data:any) =>{
+        this.attempts = data.max_points;
+        this.correctAnswers = data.correctAnswersM
+        this.attempts = data.attempts;
+        this.isSend = true;
+      },
+      (error)=>{
+        console.log(error);
+      }
+    )
+    /*this.isSend = true;
     this.questions.forEach((p:any) => {
       if(p.answerGiven == p.answer){
         this.correctAnswers ++;
@@ -107,6 +118,9 @@ export class StartComponent implements OnInit {
     console.log("Respuestas correctas: " + this.correctAnswers);
     console.log("Puntos Conseguidos: " + this.pointsAchieved);
     console.log("Intentos:  " + this.attempts);
-    console.log(this.questions);
+    console.log(this.questions);*/
+  }
+  printPage(){
+    window.print();
   }
 }

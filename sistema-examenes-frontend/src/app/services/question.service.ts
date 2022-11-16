@@ -31,4 +31,8 @@ export class QuestionService {
   public listQuestionsOfExamnToTest(examId:any){
     return this.http.get(`${baseUrl}pregunta/examen/todos/${examId}`)
   }
+
+  public evaluateExam(questions:any){
+    return this.http.post(`${baseUrl}pregunta/evaluar-examen`,questions);
+  }
 }

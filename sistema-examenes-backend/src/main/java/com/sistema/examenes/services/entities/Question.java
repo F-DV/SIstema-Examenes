@@ -15,7 +15,9 @@ public class Question {
     private String option2;
     private String option3;
     private String option4;
-    private String answer;
+
+    @Transient //El atributo no se persiste en la tabla
+    private String answerGiven;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Exam exam;
@@ -80,11 +82,11 @@ public class Question {
     }
 
     public String getAnswer() {
-        return answer;
+        return answerGiven;
     }
 
-    public void setAnswer(String answer) {
-        this.answer = answer;
+    public void setAnswer(String answerGiven) {
+        this.answerGiven = answerGiven;
     }
 
     public Exam getExam() {

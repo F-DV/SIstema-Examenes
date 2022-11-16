@@ -9,7 +9,7 @@
           </mat-card-subtitle>
         </mat-card-header>
         <mat-card-content>
-          <form (submit)="formSubmit()" class="mt20" >
+          <form class="mt20" (submit)="formSubmit()">
             <mat-form-field class="w100">
               <mat-label>Digite el contenido de la pregunta</mat-label>
               <textarea
@@ -28,8 +28,8 @@
                   <input
                   type="text"
                   matInput
-                  [(ngModel)]="question.option1"
                   name="option1"
+                  [(ngModel)]="question.option1"
                   >
                 </mat-form-field>
               </div>
