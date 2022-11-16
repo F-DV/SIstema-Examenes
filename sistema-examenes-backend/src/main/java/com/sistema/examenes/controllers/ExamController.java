@@ -1,10 +1,13 @@
 package com.sistema.examenes.controllers;
 
+import com.sistema.examenes.entities.Category;
 import com.sistema.examenes.entities.Exam;
 import com.sistema.examenes.services.ExamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/examen")
@@ -38,5 +41,26 @@ public class ExamController {
     @DeleteMapping("/{examenId}")
     public void deleteCategory(@PathVariable("examenId") Long examId){
         this.examService.deleteExam(examId);
+    }
+
+    @GetMapping("/categoria/{categoriaId}")
+    public List<Exam> listExamOfCategory(@PathVariable("categoriaId") Long categoryId){
+        Category category = new Category();
+        category.setCategoryId(categoryId);
+        return examService.listExamsOfOneCategory(category);
+    }
+    
+    @GetMapping("/activo")
+    public List<Exam> listActiveExams(){
+        return this.examService.getActiveExams();
+    }
+
+
+    @GetMapping("/categoria/activo/{categoriaId}")
+    public List<Exam> listCategoryExamsActive(@PathVariable("categoriaId") Long categoryId){
+        Category category = new Category();
+        category.setCategoryId(categoryId);
+        return this.examService.getCategoryExamsActive(category);
+
     }
 }

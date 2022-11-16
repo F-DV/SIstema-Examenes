@@ -24,10 +24,14 @@ _sistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthentic
 è
 _sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/CategoryController.java,1\4\143f6b07e18ef5a4d9d6cce7e74d48f2d60907cd
 ~
-Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/Exam.java,1\0\1078228b7df23349b6201021c70488fa1b2df862
-~
 Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
 í
 bsistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/QuestionServiceImpl.java,6\d\6de046ce3db506dc3cdd8e4e7a6faf7d225cbd73
 â
 Ysistema-examenes-backend/src/main/java/com/sistema/examenes/services/QuestionService.java,c\8\c8e9288bc3f3184ed63ce12c6fe5c84a1ce92f65
+è
+_sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/QuestionController.java,b\7\b76d375d799a13196a44638002784a646f65807b
+Ç
+Rsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/Question.java,6\c\6c9bea7e086cd29eaa6cae001eca289f1b07c500
+í
+bsistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/CategoryServiceImpl.java,2\8\289cfb4d5b1989d641ed375f8b61fd9e220620a9
