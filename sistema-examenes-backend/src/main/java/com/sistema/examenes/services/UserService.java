@@ -1,7 +1,7 @@
 package com.sistema.examenes.services;
 
-import com.sistema.examenes.entities.User;
-import com.sistema.examenes.entities.UserRole;
+import com.sistema.examenes.services.entities.User;
+import com.sistema.examenes.services.entities.UserRole;
 
 import java.util.Set;
 

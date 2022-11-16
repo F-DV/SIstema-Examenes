@@ -1,7 +1,7 @@
 package com.sistema.examenes.services;
 
-import com.sistema.examenes.entities.Exam;
-import com.sistema.examenes.entities.Question;
+import com.sistema.examenes.services.entities.Exam;
+import com.sistema.examenes.services.entities.Question;
 
 import java.util.Set;
 
@@ -18,4 +18,7 @@ public interface QuestionService {
     Set<Question> getExamQuestions(Exam exam);
 
     void deleteQuestion(Long questionId);
+
+    Question listQuestion(Long questionId);
+
 }

@@ -1,6 +1,6 @@
 package com.sistema.examenes.services.impl;
 
-import com.sistema.examenes.entities.User;
+import com.sistema.examenes.services.entities.User;
 import com.sistema.examenes.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

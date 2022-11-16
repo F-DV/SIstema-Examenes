@@ -1,7 +1,7 @@
 package com.sistema.examenes.services.impl;
 
-import com.sistema.examenes.entities.Exam;
-import com.sistema.examenes.entities.Question;
+import com.sistema.examenes.services.entities.Exam;
+import com.sistema.examenes.services.entities.Question;
 import com.sistema.examenes.repositories.QuestionRepository;
 import com.sistema.examenes.services.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,5 +46,10 @@ public class QuestionServiceImpl implements QuestionService {
         question.setQuestionId(questionId);
         this.questionRepository.delete(question);
 
+    }
+
+    @Override
+    public Question listQuestion(Long questionId) {
+        return this.questionRepository.getOne(questionId);
     }
 }

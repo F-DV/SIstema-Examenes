@@ -21,3 +21,9 @@ Psistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtUtils.jav
 csistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationEntryPoint.java,8\7\879b2944c0de60fc600da3a937672b1e8148ad3d
 è
 _sistema-examenes-backend/src/main/java/com/sistema/examenes/config/JwtAuthenticationFilter.java,3\d\3d2bf7ccbaa66b5276402d6c3f52c5d84bfc6704
+è
+_sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/CategoryController.java,1\4\143f6b07e18ef5a4d9d6cce7e74d48f2d60907cd
+~
+Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
+í
+bsistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/CategoryServiceImpl.java,2\8\289cfb4d5b1989d641ed375f8b61fd9e220620a9

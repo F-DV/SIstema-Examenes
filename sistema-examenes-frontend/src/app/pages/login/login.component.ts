@@ -23,7 +23,6 @@ export class LoginComponent implements OnInit {
   }
 
   formSubmit(){
-
     if(this.loginData.username.trim() == '' || this.loginData.username.trim() == null){
       this.snack.open('El nombre de usuario es requerido !!','Aceptar',{
         duration:3000
@@ -38,16 +37,14 @@ export class LoginComponent implements OnInit {
       return;
     }
 
-    this.loginService.generateToken(this.loginData)
-    .subscribe(
+    this.loginService.generateToken(this.loginData).subscribe(
       (data:any) => {
-        console.log(data);
-        this.loginService.loginUser(data.token);
 
-        this.loginService.getCurrentUser()
-        .subscribe((user:any) => {
+        this.loginService.loginUser(data.token);
+        //console.log(data);
+        this.loginService.getCurrentUser().subscribe(
+          (user:any) => {
           this.loginService.setUser(user);
-          console.log(user);
 
           if(this.loginService.getUserRole() == 'ADMIN'){
             //Mostramos dashboard Admin
@@ -60,7 +57,7 @@ export class LoginComponent implements OnInit {
           }else if(this.loginService.getUserRole()== 'NORMAL'){
             //Mostramos el dashboard del user
             //window.location.href = '/user'
-            this.router.navigate(['user']);
+            this.router.navigate(['user/0']);
 
             //establecer el usuario que ha iniciado session
             this.loginService.loginStatusSubject.next(true);

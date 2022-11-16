@@ -1,7 +1,7 @@
 package com.sistema.examenes.services.impl;
 
-import com.sistema.examenes.entities.User;
-import com.sistema.examenes.entities.UserRole;
+import com.sistema.examenes.services.entities.User;
+import com.sistema.examenes.services.entities.UserRole;
 import com.sistema.examenes.exceptions.UserFoundEcxeption;
 import com.sistema.examenes.repositories.RoleRepository;
 import com.sistema.examenes.repositories.UserRepository;

@@ -1,18 +1,11 @@
 package com.sistema.examenes;
 
-import com.sistema.examenes.entities.Role;
-import com.sistema.examenes.entities.User;
-import com.sistema.examenes.entities.UserRole;
-import com.sistema.examenes.exceptions.UserFoundEcxeption;
 import com.sistema.examenes.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @SpringBootApplication
 public class SistemaExamenesBackendApplication implements CommandLineRunner {

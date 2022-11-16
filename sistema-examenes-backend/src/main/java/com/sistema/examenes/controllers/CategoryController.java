@@ -1,15 +1,14 @@
 package com.sistema.examenes.controllers;
 
-import com.sistema.examenes.entities.Category;
+import com.sistema.examenes.services.entities.Category;
 import com.sistema.examenes.services.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/categoria")
-@CrossOrigin
+@CrossOrigin("*")
 public class CategoryController {
 
     @Autowired

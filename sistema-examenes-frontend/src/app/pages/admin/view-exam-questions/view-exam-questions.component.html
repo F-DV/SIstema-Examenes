@@ -1,0 +1,48 @@
+<h1 class="mt20">Preguntas de {{title}}</h1>
+<div class="bootstrap-wrapper">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="containter text-center">
+        <button
+        mat-raised-button
+        color="primary"
+        [routerLink]="'/admin/add-question/'+examId+'/'+title"
+        >
+        Agregar Pregunta
+      </button>
+      </div>
+      <mat-card *ngFor = "let p of questions; let i=index" class="mt20">
+        <mat-card-content>
+          <p>
+            <b>{{i + 1}}</b>
+            <span class="ml20" [innerHTML] = "p.contenido"></span>
+          </p>
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-md-6">
+                <p>1) <b>{{p.option1}}</b></p>
+              </div>
+              <div class="col-md-6">
+                <p>2) <b>{{p.option2}}</b></p>
+              </div>
+              <div class="col-md-6">
+                <p>3) <b>{{p.option3}}</b></p>
+              </div>
+              <div class="col-md-6">
+                <p>4) <b>{{p.option4}}</b></p>
+              </div>
+            </div>
+            <mat-divider></mat-divider>
+            <p class="mt20">
+              <b>Respuesta Correcta: {{p.answer}}</b>
+            </p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="deleteQuestion(p.questionId)" color="warn">Eliminar</button>
+          <button mat-button color="primary" [routerLink]="'/admin/question/'+p.questionId"> Actualizar</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
