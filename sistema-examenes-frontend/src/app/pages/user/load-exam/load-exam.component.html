@@ -19,7 +19,7 @@
               <p>{{e.description}}</p>
               <mat-card-actions>
                 <button mat-button color="primary">Ver</button>
-                <button mat-button color="accent">Empezar</button>
+                <button [routerLink]="'/user/instructions/'+e.examId" mat-button color="accent">Empezar</button>
                 <button mat-button color="accent">Preguntas : {{e.question_number}}</button>
                 <button mat-button color="accent">P.M : {{e.max_points}}</button>
               </mat-card-actions>
