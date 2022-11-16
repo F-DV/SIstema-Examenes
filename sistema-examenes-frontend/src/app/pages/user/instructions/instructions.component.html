@@ -13,27 +13,33 @@
             <h1>{{exam.title}}</h1>
             <p>{{exam.description}}</p>
             <mat-divider></mat-divider>
-          </mat-card-content>
-          <br>
-          <h1>Instrucciones Importantes</h1>
 
-          <ul>
-            <li>Este cuestionario es solo para fines de práctica</li>
-            <li>Tienes que enciar el cuestionario en <b>{{exam.question_number * 2}} minutos</b></li>
-            <li>Puede intentar el cuestionario cualquier cantidad de veces</li>
-            <li>Hay <b>{{exam.max_points / exam.question_number}} puntos</b></li>
-          </ul>
-          <mat-divider></mat-divider>
-          <br>
-          <h1>Intentos de la prueba</h1>
-          <ul>
-            <li>Presione el boton <b>Empezar</b> para iniciar el examen</li>
-            <li>El tiempo comenzará en el momento en que haga click en el botón de inicio</li>
-            <li>No puede reanudar este cuestionario si se interrumpe por algún motivo</li>
-            <li>Desplácese hacia abajo para pasar a la siguiente pregunta</li>
-            <li>Haga clic en el botón enviar cuestionario al finalizar el cuestionario</li>
-            <li>El informe de la prueba se genera automáticamente en forma de copia PDF</li>
-          </ul>
+            <br>
+            <h1>Instrucciones Importantes</h1>
+
+            <ul>
+              <li>Este cuestionario es solo para fines de práctica</li>
+              <li>Tienes que enciar el cuestionario en <b>{{exam.question_number * 2}} minutos</b></li>
+              <li>Puede intentar el cuestionario cualquier cantidad de veces</li>
+              <li>Hay <b>{{exam.max_points / exam.question_number}} puntos</b></li>
+            </ul>
+            <mat-divider></mat-divider>
+            <br>
+            <h1>Intentos de la prueba</h1>
+            <ul>
+              <li>Presione el boton <b>Empezar</b> para iniciar el examen</li>
+              <li>El tiempo comenzará en el momento en que haga click en el botón de inicio</li>
+              <li>No puede reanudar este cuestionario si se interrumpe por algún motivo</li>
+              <li>Desplácese hacia abajo para pasar a la siguiente pregunta</li>
+              <li>Haga clic en el botón enviar cuestionario al finalizar el cuestionario</li>
+              <li>El informe de la prueba se genera automáticamente en forma de copia PDF</li>
+            </ul>
+          </mat-card-content>
+          <mat-card-actions class="text-center mb20">
+            <button (click)="startExam()" mat-raised-button color="primary">
+              Comenzar Prueba
+            </button>
+          </mat-card-actions>
         </mat-card>
       </div>
     </div>

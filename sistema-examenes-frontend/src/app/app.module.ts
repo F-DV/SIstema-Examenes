@@ -37,6 +37,7 @@ import { UpdateQuestionComponent } from './pages/admin/update-question/update-qu
 import { UserSidebarComponent } from './pages/user/user-sidebar/user-sidebar.component';
 import { LoadExamComponent } from './pages/user/load-exam/load-exam.component';
 import { InstructionsComponent } from './pages/user/instructions/instructions.component';
+import { StartComponent } from './pages/user/start/start.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { InstructionsComponent } from './pages/user/instructions/instructions.co
     UpdateQuestionComponent,
     UserSidebarComponent,
     LoadExamComponent,
-    InstructionsComponent
+    InstructionsComponent,
+    StartComponent
   ],
   imports: [
     BrowserModule,
