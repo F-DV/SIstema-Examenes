@@ -28,4 +28,7 @@ export class QuestionService {
   public getQuestion(questionId:any){
     return this.http.get(`${baseUrl}pregunta/${questionId}`);
   }
+  public listQuestionsOfExamnToTest(examId:any){
+    return this.http.get(`${baseUrl}pregunta/examen/todos/${examId}`)
+  }
 }

@@ -1,1 +1,47 @@
-<p>start works!</p>
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2">
+        <h3>Instrucciones</h3>
+      </div>
+      <div class="col-md-8">
+        <ng-container *ngIf="questions">
+          <h1 class="mt20">
+            En curso <b>{{questions[0].exam.title}}</b>
+          </h1>
+        </ng-container>
+
+        <mat-card *ngFor="let p of questions;let i = index">
+          <mat-card-content>
+            <p><b>{{i+1}}) </b> <span [innerHTML]="p.content">{{p.option1}}</span></p>
+            <mat-divider></mat-divider>
+            <div class="row mt20">
+              <div class="col-md-7 mt10">
+                <input type="radio" [value]="p.option1" [name]="i">{{p.option1}}
+              </div>
+              <div class="col-md-7 mt10">
+                <input type="radio" [value]="p.option2" [name]="i">{{p.option2}}
+              </div>
+              <div class="col-md-7 mt10">
+                <input type="radio" [value]="p.option3" [name]="i">{{p.option3}}
+              </div>
+              <div class="col-md-7 mt10">
+                <input type="radio" [value]="p.option4" [name]="i">{{p.option4}}
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-10"></div>
+              <div class="col-md-10"></div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+        <div class="container text-center mt20 mb20">
+          <button mat-raised-button color="primary">Enviar cuestionario</button>
+        </div>
+        <div class="col-md-2">
+          Barra de progreso
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
