@@ -1,0 +1,17 @@
+
+E
+java:S3740("/Provide the parametrized type for this generic.(°ãÇ©
+b
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(â…Ìæÿÿÿÿÿ8ì£åÈ0
+]
+java:S4684"@Replace this persistent entity with a simple POJO or DTO object.(³”ÿß8ï£åÈ0
+X
+java:S1854%"=Remove this useless assignment to local variable "questions".(ª­™¿øÿÿÿÿ
+<
+java:S1452#"&Remove usage of generic wildcard type.(ÙÒÄ
+I
+java:S1481%".Remove this unused "questions" local variable.(ª­™¿øÿÿÿÿ
+A
+java:S1452<"&Remove usage of generic wildcard type.(ÁÀîäúÿÿÿÿ
+A
+java:S1452D"&Remove usage of generic wildcard type.(Áú¦âüÿÿÿÿ

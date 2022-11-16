@@ -1,5 +1,12 @@
 package com.sistema.examenes;
 
+<<<<<<< HEAD
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SistemaExamenesBackendApplication {
+=======
 import com.sistema.examenes.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,11 +21,14 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 	private UserService userService;
 	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+>>>>>>> dev1
 
 	public static void main(String[] args) {
 		SpringApplication.run(SistemaExamenesBackendApplication.class, args);
 	}
 
+<<<<<<< HEAD
+=======
 	@Override
 	public void run(String... args) throws Exception {
 /*
@@ -59,4 +69,5 @@ public class SistemaExamenesBackendApplication implements CommandLineRunner {
 	}
 
 
+>>>>>>> dev1
 }
