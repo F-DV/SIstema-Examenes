@@ -16,13 +16,21 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+<<<<<<< HEAD
     "target": "ES2022",
+=======
+    "target": "es2020",
+>>>>>>> main
     "module": "es2020",
     "lib": [
       "es2020",
       "dom"
+<<<<<<< HEAD
     ],
     "useDefineForClassFields": false
+=======
+    ]
+>>>>>>> main
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
