@@ -27,3 +27,7 @@ _sistema-examenes-backend/src/main/java/com/sistema/examenes/controllers/Categor
 Nsistema-examenes-backend/src/main/java/com/sistema/examenes/entities/User.java,f\0\f09be2ba3434e8586ba7343e984c988468f402d3
 ’
 bsistema-examenes-backend/src/main/java/com/sistema/examenes/services/impl/CategoryServiceImpl.java,2\8\289cfb4d5b1989d641ed375f8b61fd9e220620a9
+P
+ sistema-examenes-backend/pom.xml,2\e\2e8d19be1fb07b764315126f8cf97bd4ae2a0f1b
+’
+bsistema-examenes-backend/src/main/java/com/sistema/examenes/SistemaExamenesBackendApplication.java,f\3\f3aca3a74278aa99066b760513a16923a97aff4c
